@@ -36,15 +36,6 @@ public class Merk implements Serializable {
     @LastModifiedDate
     private Date updatedAt;
 
-    public Merk(
-            @NotBlank String brand,
-            Date createdAt,
-            Date updatedAt
-    ) {
-        this.brand = brand;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
 
     public Long getId() {
         return id;

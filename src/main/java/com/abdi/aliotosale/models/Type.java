@@ -33,17 +33,6 @@ public class Type implements Serializable {
     @LastModifiedDate
     private Date updatedAt;
 
-    public Type(
-            @NotBlank Long Id,
-            @NotBlank String nama,
-            Date createdAt,
-            Date updatedAt
-    ) {
-        this.id = Id;
-        this.nama = nama;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
 
     public Long getId() {
         return id;
