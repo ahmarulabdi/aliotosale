@@ -7,6 +7,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.Year;
 import java.util.Date;
@@ -24,20 +25,20 @@ public class Mobil implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotNull
     private Long nomorKerangka;
     @NotBlank
     private String seriWilayah;
-    @NotBlank
-    private Integer nomor;
+    @NotNull
+    private Long nomor;
     @NotBlank
     private String seri;
-    @NotBlank
+    @NotNull
     private Long merkId;
-    @NotBlank
+    @NotNull
     private Long typeId;
     @NotBlank
-    private Year tahun;
+    private String tahun;
 
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -73,11 +74,11 @@ public class Mobil implements Serializable {
         this.seriWilayah = seriWilayah;
     }
 
-    public Integer getNomor() {
+    public Long getNomor() {
         return nomor;
     }
 
-    public void setNomor(Integer nomor) {
+    public void setNomor(Long nomor) {
         this.nomor = nomor;
     }
 
@@ -105,11 +106,11 @@ public class Mobil implements Serializable {
         this.typeId = typeId;
     }
 
-    public Year getTahun() {
+    public String getTahun() {
         return tahun;
     }
 
-    public void setTahun(Year tahun) {
+    public void setTahun(String tahun) {
         this.tahun = tahun;
     }
 
