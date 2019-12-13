@@ -35,7 +35,11 @@ public class Mobil implements Serializable {
     @NotBlank
     private Long merkId;
     @NotBlank
+    private String brand;
+    @NotBlank
     private Long typeId;
+    @NotBlank
+    private String typeNama;
     @NotBlank
     private Year tahun;
 
@@ -97,12 +101,28 @@ public class Mobil implements Serializable {
         this.merkId = merkId;
     }
 
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        brand = brand;
+    }
+
     public Long getTypeId() {
         return typeId;
     }
 
     public void setTypeId(Long typeId) {
         this.typeId = typeId;
+    }
+
+    public String getTypeNama() {
+        return typeNama;
+    }
+
+    public void setTypeNama(String typeNama) {
+        typeNama = typeNama;
     }
 
     public Year getTahun() {
@@ -138,7 +158,9 @@ public class Mobil implements Serializable {
                 "nomor=" + nomor +
                 "seri=" + seri +
                 "merkId=" + merkId +
+                "brand=" + brand +
                 "typeId=" + typeId +
+                "typeNama=" + typeNama +
                 "tahun=" + tahun +
                 "createdAt=" + createdAt +
                 "updatedAt=" + updatedAt +
