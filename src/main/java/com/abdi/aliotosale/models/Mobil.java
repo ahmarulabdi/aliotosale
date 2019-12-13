@@ -12,7 +12,7 @@ import java.time.Year;
 import java.util.Date;
 
 @Entity
-@Table(name = "mobils")
+@Table(name = "mobil")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {
         "createdAt",
@@ -48,28 +48,6 @@ public class Mobil implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     private Date updatedAt;
-
-    public Mobil(
-            @NotBlank Long nomorKerangka,
-            @NotBlank String seriWilayah,
-            @NotBlank Integer nomor,
-            @NotBlank String seri,
-            @NotBlank Long merkId,
-            @NotBlank Long typeId,
-            @NotBlank Year tahun,
-            Date createdAt,
-            Date updatedAt
-    ) {
-        this.nomorKerangka = nomorKerangka;
-        this.seriWilayah = seriWilayah;
-        this.nomor = nomor;
-        this.seri = seri;
-        this.merkId = merkId;
-        this.typeId = typeId;
-        this.tahun = tahun;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
 
     public Long getId() {
         return id;
