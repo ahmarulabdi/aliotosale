@@ -12,19 +12,19 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "brand")
+@Table(name = "merk")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {
         "createdAt",
         "updatedAt"
 }, allowGetters = true)
-public class Brand implements Serializable {
+public class Merk implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    private String merk;
+    private String brand;
 
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -36,12 +36,12 @@ public class Brand implements Serializable {
     @LastModifiedDate
     private Date updatedAt;
 
-    public Brand(
-            @NotBlank String merk,
+    public Merk(
+            @NotBlank String brand,
             Date createdAt,
             Date updatedAt
     ) {
-        this.merk = merk;
+        this.brand = brand;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -54,12 +54,12 @@ public class Brand implements Serializable {
         this.id = id;
     }
 
-    public String getMerk() {
-        return merk;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setMerk(String merk) {
-        this.merk = merk;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public Date getCreatedAt() {
@@ -80,8 +80,8 @@ public class Brand implements Serializable {
 
     @Override
     public String toString() {
-        return "Brand{" +
-                "merk=" + merk +
+        return "Merk{" +
+                "brand=" + brand +
                 "createdAt=" + createdAt +
                 "updatedAt=" + updatedAt +
                 "}";
