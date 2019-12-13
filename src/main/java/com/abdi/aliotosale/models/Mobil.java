@@ -56,8 +56,10 @@ public class Mobil implements Serializable {
             @NotBlank String seri,
             @NotBlank Long merkId,
             @NotBlank Long typeId,
-            @NotBlank Year tahun
-            ){
+            @NotBlank Year tahun,
+            Date createdAt,
+            Date updatedAt
+    ) {
         this.nomorKerangka = nomorKerangka;
         this.seriWilayah = seriWilayah;
         this.nomor = nomor;
@@ -65,6 +67,8 @@ public class Mobil implements Serializable {
         this.merkId = merkId;
         this.typeId = typeId;
         this.tahun = tahun;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Long getId() {
@@ -150,14 +154,16 @@ public class Mobil implements Serializable {
     @Override
     public String toString() {
         return "Mobil{" +
-                "id="+ id +
-                "nomorKerangka="+ nomorKerangka +
-                "seriWilayah="+ seriWilayah +
-                "nomor="+ nomor +
-                "seri="+ seri +
-                "merkId="+ merkId +
-                "typeId="+ typeId +
-                "tahun="+tahun+
+                "id=" + id +
+                "nomorKerangka=" + nomorKerangka +
+                "seriWilayah=" + seriWilayah +
+                "nomor=" + nomor +
+                "seri=" + seri +
+                "merkId=" + merkId +
+                "typeId=" + typeId +
+                "tahun=" + tahun +
+                "createdAt=" + createdAt +
+                "updatedAt=" + updatedAt +
                 "}";
     }
 }

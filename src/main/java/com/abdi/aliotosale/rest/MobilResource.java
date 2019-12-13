@@ -1,28 +1,25 @@
-package com.abdi.aliotosale.controller;
+package com.abdi.aliotosale.rest;
 
 import com.abdi.aliotosale.models.Mobil;
 import com.abdi.aliotosale.repository.MobilRepository;
+import com.abdi.aliotosale.service.MobilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
-public class MobilController {
-    EntityManager entityManager;
+@RequestMapping("/api/mobil")
+public class MobilResource {
     @Autowired
-    MobilRepository mobilRepository;
+    private MobilService mobilService;
 
-    @GetMapping("/mobil")
+    @GetMapping("/")
     public List<Mobil> getAllMobil() {
-        return mobilRepository.findAll();
+        return mobilService.getAllMobil();
     }
 
 }
