@@ -33,9 +33,9 @@ public class Mobil implements Serializable {
     @NotBlank
     private String seri;
     @NotBlank
-    private String merk;
+    private Long merkId;
     @NotBlank
-    private String tipe;
+    private Long typeId;
     @NotBlank
     private Year tahun;
 
@@ -54,16 +54,16 @@ public class Mobil implements Serializable {
             @NotBlank String seriWilayah,
             @NotBlank Integer nomor,
             @NotBlank String seri,
-            @NotBlank String merk,
-            @NotBlank String tipe,
+            @NotBlank Long merkId,
+            @NotBlank Long typeId,
             @NotBlank Year tahun
             ){
         this.nomorKerangka = nomorKerangka;
         this.seriWilayah = seriWilayah;
         this.nomor = nomor;
         this.seri = seri;
-        this.merk = merk;
-        this.tipe = tipe;
+        this.merkId = merkId;
+        this.typeId = typeId;
         this.tahun = tahun;
     }
 
@@ -107,20 +107,20 @@ public class Mobil implements Serializable {
         this.seri = seri;
     }
 
-    public String getMerk() {
-        return merk;
+    public Long getMerkId() {
+        return merkId;
     }
 
-    public void setMerk(String merk) {
-        this.merk = merk;
+    public void setMerkId(Long merkId) {
+        this.merkId = merkId;
     }
 
-    public String getTipe() {
-        return tipe;
+    public Long getTypeId() {
+        return typeId;
     }
 
-    public void setTipe(String tipe) {
-        this.tipe = tipe;
+    public void setTypeId(Long typeId) {
+        this.typeId = typeId;
     }
 
     public Year getTahun() {
@@ -155,8 +155,8 @@ public class Mobil implements Serializable {
                 "seriWilayah="+ seriWilayah +
                 "nomor="+ nomor +
                 "seri="+ seri +
-                "merk="+ merk +
-                "tipe="+ tipe+
+                "merkId="+ merkId +
+                "typeId="+ typeId +
                 "tahun="+tahun+
                 "}";
     }
