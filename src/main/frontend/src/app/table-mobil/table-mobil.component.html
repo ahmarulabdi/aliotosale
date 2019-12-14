@@ -1,5 +1,10 @@
-
-<table class="table table-bordered mt-5 ">
+<div class="form-group form-inline mt-5" >
+  <select name="" id="" class="form-control">
+    <option value="">Search kriteria</option>
+  </select>
+  <input type="text" placeholder="Search Box" class="form-control">
+</div>
+<table class="table table-bordered ">
   <thead class="table-primary">
   <tr>
     <th>Nomor kerangka</th>
@@ -19,10 +24,15 @@
       <td>{{ mobil.tahun }}</td>
       <td>
         <div class="btn btn-group">
-          <button class="btn btn-sm btn-info" (click)="modalUpdateMobil(mobil.id)">Edit</button>
+          <button class="btn btn-sm btn-info" (click)="modalUpdateMobil(mobil.id,mobil)">Edit</button>
           <button class="btn btn-sm btn-danger">Delete</button>
         </div>
       </td>
     </tr>
   </tbody>
+  <tfoot>
+  <tr>
+    <td>Total Mobil : {{ this.mobils.length }} </td>
+  </tr>
+  </tfoot>
 </table>
