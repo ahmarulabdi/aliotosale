@@ -69,6 +69,8 @@ public class MobilService {
         return mobilRepository.save(newMobil);
     }
 
+
+
     public List<Mobil> updateMobilByMerkIdTypeId(Long merkId, Long typeId, Mobil mobil) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Mobil> criteriaQuery = criteriaBuilder.createQuery(Mobil.class);

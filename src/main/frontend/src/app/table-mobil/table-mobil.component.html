@@ -1,1 +1,28 @@
-<p>table-mobil works!</p>
+
+<table class="table table-bordered mt-5 ">
+  <thead class="table-primary">
+  <tr>
+    <th>Nomor kerangka</th>
+    <th>Nomor Polisi</th>
+    <th>Merk</th>
+    <th>Tipe</th>
+    <th>Tahun</th>
+    <th>Opsi</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let mobil of mobils" >
+      <td>{{ mobil.nomorKerangka}}</td>
+      <td>{{ mobil.seriWilayah }} {{ mobil.nomor}} {{ mobil.seri }}</td>
+      <td>{{ mobil.merkId }}</td>
+      <td>{{ mobil.typeId }}</td>
+      <td>{{ mobil.tahun }}</td>
+      <td>
+        <div class="btn btn-group">
+          <button class="btn btn-sm btn-info" (click)="modalUpdateMobil(mobil.id)">Edit</button>
+          <button class="btn btn-sm btn-danger">Delete</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
