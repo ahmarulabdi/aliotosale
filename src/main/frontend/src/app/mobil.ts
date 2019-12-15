@@ -12,8 +12,10 @@ export class Mobil {
   seri: string;
   merkId: number;
   _merk ?: Merk;
+  merkBrand ?: string;
   typeId: number;
   _type ?: Type;
+  typeNama ?: string;
   tahun: string;
   craetedAt: string;
   updatedAt: string;
