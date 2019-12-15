@@ -3,13 +3,11 @@ package com.abdi.aliotosale.rest;
 import com.abdi.aliotosale.models.Merk;
 import com.abdi.aliotosale.service.MerkService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/merk")
 public class MerkResource {
@@ -24,5 +22,14 @@ public class MerkResource {
     @GetMapping("{id}")
     public Merk getMerkById(@PathVariable(value = "id") Long id) {
         return merkService.getMerkById(id);
+    }
+
+    @PutMapping("{id}")
+    public Merk updateById(@PathVariable(value = "id") Long id, @RequestBody Merk merk) {
+        return merkService.updateMerkById(id, merk);
+    }
+    @DeleteMapping("{id}")
+    public Boolean deleteById(@PathVariable(value = "id") long id) {
+        return merkService.deleteMerkById(id);
     }
 }

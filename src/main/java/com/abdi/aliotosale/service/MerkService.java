@@ -23,4 +23,18 @@ public class MerkService {
         );
     }
 
+    public Merk updateMerkById(Long id, Merk merk) {
+        Merk updatedMerk = merkRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Merk", "ID", id)
+        );
+
+        updatedMerk.setBrand(merk.getBrand());
+        return merkRepository.save(updatedMerk);
+    }
+
+    public Boolean deleteMerkById(Long id) {
+        merkRepository.deleteById(id);
+        return merkRepository.findById(id).isEmpty();
+    }
+
 }
