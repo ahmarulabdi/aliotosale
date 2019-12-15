@@ -20,4 +20,8 @@ export class MerkService {
   getAllMerk(): Observable<EntityArrayResponseMerk> {
     return this.http.get<Merk[]>(this.merkUrl, { observe: 'response'});
   }
+
+  getMerkById(id: number): Observable<EntityResponseMerk> {
+    return this.http.get<Merk>(`${this.merkUrl}/${id}`, { observe: 'response'})
+  }
 }

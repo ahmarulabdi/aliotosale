@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Type} from './type';
 import {Observable} from "rxjs";
+import {Merk} from "./merk";
 
 type EntityResponseType = HttpResponse<Type>;
 type EntityArrayResponseType = HttpResponse<Type[]>;
@@ -21,5 +22,8 @@ export class TypeService {
 
   getAllType(): Observable<EntityArrayResponseType> {
     return this.http.get<Type[]>(this.typeUrl, {observe: "response"})
+  }
+  getTypeById(id: number): Observable<EntityResponseType> {
+    return this.http.get<Type>(`${this.typeUrl}/${id}`, { observe: 'response'})
   }
 }
