@@ -5,7 +5,10 @@ import {MerkService} from "../merk.service";
 import {Observable} from "rxjs";
 import {HttpResponse} from "@angular/common/http";
 import {Merk} from "../merk";
-
+import {TypeService} from "../type.service";
+import {Type} from "../type";
+import {Toast, ToastrService} from "ngx-toastr";
+import {MobilService} from "../mobil.service";
 
 
 @Component({
@@ -15,27 +18,33 @@ import {Merk} from "../merk";
 })
 export class UpdateMobilComponent implements OnInit {
   @Input() public mobil: Mobil;
-  merks : Merk[];
+  merks: Merk[];
+  types: Type[];
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
+
   constructor(
     private activeModal: NgbActiveModal,
-    private merkService: MerkService
+    private merkService: MerkService,
+    private typeService: TypeService,
+    private toastrService: ToastrService,
+    private mobilService: MobilService
   ) {
-
-
   }
 
   ngOnInit() {
-    console.log(this.mobil);
-
+    this.getAllMerk();
+    this.getAllType();
   }
 
   passBack() {
     this.passEntry.emit(this.mobil);
     this.activeModal.close();
+
   }
 
-  getAllMerk(){
+
+
+  getAllMerk() {
     this.merkService.getAllMerk().subscribe(
       (res: HttpResponse<Merk[]>) => {
         this.merks = res.body;
@@ -43,5 +52,12 @@ export class UpdateMobilComponent implements OnInit {
     );
   }
 
+  getAllType() {
+    this.typeService.getAllType().subscribe(
+      (res: HttpResponse<Type[]>) => {
+        this.types = res.body;
+      }
+    )
+  }
 
 }
