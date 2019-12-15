@@ -19,8 +19,8 @@
     <tr *ngFor="let mobil of mobils" >
       <td>{{ mobil.nomorKerangka}}</td>
       <td>{{ mobil.seriWilayah }} {{ mobil.nomor}} {{ mobil.seri }}</td>
-      <td>{{ mobil.merkId }}</td>
-      <td>{{ mobil.typeId }}</td>
+      <td>{{ mobil.merkBrand }}</td>
+      <td>{{ mobil.typeNama }}</td>
       <td>{{ mobil.tahun }}</td>
       <td>
         <div class="btn btn-group">
@@ -33,6 +33,7 @@
   <tfoot>
   <tr>
     <td>Total Mobil :  </td>
+
   </tr>
   </tfoot>
 </table>
