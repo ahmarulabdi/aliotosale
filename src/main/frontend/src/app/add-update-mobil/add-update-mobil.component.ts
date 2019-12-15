@@ -2,21 +2,20 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {Mobil} from "../mobil";
 import {MerkService} from "../merk.service";
-import {Observable} from "rxjs";
 import {HttpResponse} from "@angular/common/http";
 import {Merk} from "../merk";
 import {TypeService} from "../type.service";
 import {Type} from "../type";
-import {Toast, ToastrService} from "ngx-toastr";
+import {ToastrService} from "ngx-toastr";
 import {MobilService} from "../mobil.service";
 
 
 @Component({
   selector: 'app-update-mobil',
-  templateUrl: './update-mobil.component.html',
-  styleUrls: ['./update-mobil.component.css']
+  templateUrl: './add-update-mobil.component.html',
+  styleUrls: ['./add-update-mobil.component.css']
 })
-export class UpdateMobilComponent implements OnInit {
+export class AddUpdateMobilComponent implements OnInit {
   @Input() public mobil: Mobil;
   merks: Merk[];
   types: Type[];
@@ -26,8 +25,6 @@ export class UpdateMobilComponent implements OnInit {
     private activeModal: NgbActiveModal,
     private merkService: MerkService,
     private typeService: TypeService,
-    private toastrService: ToastrService,
-    private mobilService: MobilService
   ) {
   }
 

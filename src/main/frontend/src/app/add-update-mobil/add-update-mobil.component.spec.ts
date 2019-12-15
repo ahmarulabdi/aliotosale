@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddMobilComponent } from './add-mobil.component';
+import { AddUpdateMobilComponent } from './add-update-mobil.component';
 
-describe('AddMobilComponent', () => {
-  let component: AddMobilComponent;
-  let fixture: ComponentFixture<AddMobilComponent>;
+describe('UpdateMobilComponent', () => {
+  let component: AddUpdateMobilComponent;
+  let fixture: ComponentFixture<AddUpdateMobilComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddMobilComponent ]
+      declarations: [ AddUpdateMobilComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddMobilComponent);
+    fixture = TestBed.createComponent(AddUpdateMobilComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

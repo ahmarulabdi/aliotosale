@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TableMobilComponent } from './table-mobil/table-mobil.component';
-import { AddMobilComponent } from './add-mobil/add-mobil.component';
-import { UpdateMobilComponent } from './update-mobil/update-mobil.component';
+import { AddUpdateMobilComponent } from './add-update-mobil/add-update-mobil.component';
 import {HttpClientModule} from "@angular/common/http"
 import {NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
@@ -19,8 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     NavbarComponent,
     TableMobilComponent,
-    AddMobilComponent,
-    UpdateMobilComponent,
+    AddUpdateMobilComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    UpdateMobilComponent
+    AddUpdateMobilComponent
   ]
 })
 export class AppModule { }

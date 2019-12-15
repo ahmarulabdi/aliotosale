@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {MobilService} from "../mobil.service";
 import {Mobil} from "../mobil";
 import {HttpResponse} from "@angular/common/http";
-import {UpdateMobilComponent} from "../update-mobil/update-mobil.component";
+import {AddUpdateMobilComponent} from "../add-update-mobil/add-update-mobil.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {Toast, ToastrService} from "ngx-toastr";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-table-mobil',
@@ -49,8 +49,8 @@ export class TableMobilComponent implements OnInit {
     }
   }
 
-  modalUpdateMobil(mobil: Mobil) {
-    const modalRef = this.modalService.open(UpdateMobilComponent);
+  modaladdOrUpdate(mobil ?: Mobil) {
+    const modalRef = this.modalService.open(AddUpdateMobilComponent);
     modalRef.componentInstance.mobil = mobil;
     modalRef.componentInstance.passEntry.subscribe((receiveEntry) =>
       this.save(receiveEntry,mobil.id)
