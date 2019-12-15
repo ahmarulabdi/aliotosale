@@ -24,7 +24,7 @@ public class MobilResource {
         return mobilService.getMobilByMerkId(merkId);
     }
 
-    @PutMapping("/{id}/mobil")
+    @PutMapping("/{id}")
     public Mobil updateMobilById(@PathVariable long id, @RequestBody Mobil mobil){
         return mobilService.updateMobilById(id, mobil);
     }
