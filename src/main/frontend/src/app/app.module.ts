@@ -10,6 +10,8 @@ import { UpdateMobilComponent } from './update-mobil/update-mobil.component';
 import {HttpClientModule} from "@angular/common/http"
 import {NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
+import { ToastrModule } from "ngx-toastr";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -25,7 +27,13 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
