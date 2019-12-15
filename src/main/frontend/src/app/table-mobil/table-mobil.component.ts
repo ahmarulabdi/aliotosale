@@ -18,7 +18,6 @@ import {Merk} from "../merk";
 })
 export class TableMobilComponent implements OnInit {
   mobils: Mobil[];
-
   constructor(
     private mobilService: MobilService,
     private modalService: NgbModal,
@@ -27,17 +26,15 @@ export class TableMobilComponent implements OnInit {
     private merkService: MerkService
   ) {
     this.getAllMobil();
-
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 
   getAllMobil(): void {
     this.mobils = [];
     this.mobilService.getAllMobil().subscribe(
-      (res: HttpResponse<Mobil[]>)=> {
+      (res: HttpResponse<Mobil[]>) => {
         res.body.map(
           mobil => {
             {

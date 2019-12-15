@@ -1,43 +1,41 @@
-<div class="modal-header">
-  <h4 class="modal-title">Perbarui Mobil</h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  <div class="form-group">
-    <label for="nomorKerangan">Nomor Kerangka</label>
-    <input type="number" id="nomorKerangan" class="form-control"
-           [(ngModel)]="mobil.nomorKerangka">
+<form name="formMobil" role="form" (ngSubmit)="passBack()" [formGroup]="formMobil">
+  <div class="modal-header">
+    <h4 class="modal-title">Perbarui Mobil</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-  <div class="form-group">
-    <label>Plat Nomor</label>
-    <div class="form-inline">
-      <input type="text" id="seriWilayah" class="form-control" style="width: 20%"
-             [(ngModel)]="mobil.seriWilayah">
-      <input type="text" id="nomor" class="form-control" style="width: 60%"
-             [(ngModel)]="mobil.nomor">
-      <input type="text" id="seri" class="form-control" style="width: 20%"
-             [(ngModel)]="mobil.seri">
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="nomorKerangka">Nomor Kerangka</label>
+      <input type="number" id="nomorKerangka" formControlName="nomorKerangka" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Plat Nomor</label>
+      <div class="form-inline">
+        <input type="text" id="seriWilayah" formControlName="seriWilayah" class="form-control" style="width: 20%">
+        <input type="text" id="nomor" formControlName="nomor" class="form-control" style="width: 60%">
+        <input type="text" id="seri" formControlName="seri" class="form-control" style="width: 20%">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="merkId">Merk</label>
+      <select name="merkId" id="merkId" formControlName="merkId" class="form-control">
+        <option *ngFor="let merk of merks" value="{{ merk.id }}">{{ merk.brand}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="typeId">Type</label>
+      <select name="typeId" id="typeId" formControlName="typeId" class="form-control">
+        <option value="{{ type.id }}" *ngFor="let type of types">{{ type.nama }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="tahun">Tahun</label>
+      <input type="text" name="tahun" id="tahun" formControlName="tahun" class="form-control">
     </div>
   </div>
-  <div class="form-group">
-    <label for="merkId">Merk</label>
-    <select name="merkId" id="merkId" class="form-control" [(ngModel)]="mobil.merkId">
-      <option *ngFor="let merk of merks" value="{{ merk.id }}">{{ merk.brand}}</option>
-    </select>
+  <div class="modal-footer">
+    <button class="btn btn-success" type="submit" >Simpan</button>
   </div>
-  <div class="form-group">
-    <label for="typeId">Type</label>
-    <select name="typeId" id="typeId" class="form-control" [(ngModel)]="mobil.typeId">
-      <option value="{{ type.id }}" *ngFor="let type of types">{{ type.nama }}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="tahun">Tahun</label>
-    <input type="text" name="tahun" id="tahun" class="form-control" [(ngModel)]="mobil.tahun">
-  </div>
-</div>
-<div class="modal-footer">
-  <button class="btn btn-success" type="submit" (click)="passBack()">Pass Back</button>
-</div>
+</form>

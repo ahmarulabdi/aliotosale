@@ -32,8 +32,12 @@
   </tbody>
   <tfoot>
   <tr>
-    <td>Total Mobil :  </td>
-
+    <td colspan="5">Total Mobil : {{ mobils.length }} </td>
+    <td>
+      <button class="btn btn-block btn-success" (click)="modaladdOrUpdate()">
+        Tambah Mobil
+      </button>
+    </td>
   </tr>
   </tfoot>
 </table>

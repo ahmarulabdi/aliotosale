@@ -8,7 +8,7 @@ import { TableMobilComponent } from './table-mobil/table-mobil.component';
 import { AddUpdateMobilComponent } from './add-update-mobil/add-update-mobil.component';
 import {HttpClientModule} from "@angular/common/http"
 import {NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -32,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       positionClass: 'toast-top-right',
       preventDuplicates: true,
     }),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
