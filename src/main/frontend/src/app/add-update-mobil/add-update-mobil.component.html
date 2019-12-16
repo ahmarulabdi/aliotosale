@@ -1,11 +1,14 @@
-<form name="formMobil" role="form" (ngSubmit)="passBack()" [formGroup]="formMobil">
+<form name="formMobil" role="form" (ngSubmit)="submit()" [formGroup]="formMobil">
   <div class="modal-header">
-    <h4 class="modal-title">Perbarui Mobil</h4>
+    <h4 class="modal-title">{{ title }}</h4>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
+    <div class="form-group" [hidden]="!formMobil.get(['id']).value">
+      <label for="id">ID</label>
+    </div>
     <div class="form-group">
       <label for="nomorKerangka">Nomor Kerangka</label>
       <input type="number" id="nomorKerangka" formControlName="nomorKerangka" class="form-control">
@@ -36,6 +39,6 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-success" type="submit" >Simpan</button>
+    <button class="btn btn-success" type="submit">Simpan</button>
   </div>
 </form>

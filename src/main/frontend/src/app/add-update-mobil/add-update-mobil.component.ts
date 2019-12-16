@@ -6,8 +6,6 @@ import {HttpResponse} from "@angular/common/http";
 import {Merk} from "../merk";
 import {TypeService} from "../type.service";
 import {Type} from "../type";
-import {ToastrService} from "ngx-toastr";
-import {MobilService} from "../mobil.service";
 import {FormBuilder} from "@angular/forms";
 
 
@@ -20,8 +18,9 @@ export class AddUpdateMobilComponent implements OnInit {
   @Input() public mobil ?: Mobil;
   merks: Merk[];
   types: Type[];
-
+  title: string;
   formMobil = this.fb.group({
+    id: [],
     nomorKerangka: [],
     seriWilayah: [],
     nomor: [],
@@ -44,20 +43,39 @@ export class AddUpdateMobilComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.mobil){
-      this.updateForm();
+    if (this.mobil) {
+      this.title = "Perbarui Mobil";
+      this.formUpdate();
+    }else{
+      this.title = "Tambah Mobil";
     }
+
     this.getAllMerk();
     this.getAllType();
   }
 
-  passBack() {
-    this.passEntry.emit(this.mobil);
+  submit() {
+    this.passEntry.emit(
+      {
+        ...new Mobil(),
+        id: this.formMobil.get(['id']).value,
+        nomorKerangka: this.formMobil.get(['nomorKerangka']).value,
+        seriWilayah: this.formMobil.get(['seriWilayah']).value,
+        nomor: this.formMobil.get(['nomor']).value,
+        seri: this.formMobil.get(['seri']).value,
+        merkId: this.formMobil.get(['merkId']).value,
+        typeId: this.formMobil.get(['typeId']).value,
+        tahun: this.formMobil.get(['tahun']).value,
+      }
+    );
+
+
     this.activeModal.close();
   }
 
-  updateForm(){
+  formUpdate() {
     this.formMobil.patchValue({
+      id: this.mobil.id,
       nomorKerangka: this.mobil.nomorKerangka,
       seriWilayah: this.mobil.seriWilayah,
       nomor: this.mobil.nomor,
