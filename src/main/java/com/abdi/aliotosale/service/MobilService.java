@@ -82,17 +82,7 @@ public class MobilService {
         return mobilRepository.save(newMobil);
     }
 
-    public Mobil updateMobilById(Long id, Mobil mobil) {
-        Mobil updatedMobil = mobilRepository.getOne(id);
-        updatedMobil.setNomorKerangka(mobil.getNomorKerangka());
-        updatedMobil.setSeriWilayah(mobil.getSeriWilayah());
-        updatedMobil.setNomor(mobil.getNomor());
-        updatedMobil.setSeri(mobil.getSeri());
-        updatedMobil.setMerkId(mobil.getMerkId());
-        updatedMobil.setTypeId(mobil.getTypeId());
-        updatedMobil.setTahun(mobil.getTahun());
-        return mobilRepository.save(updatedMobil);
-    }
+
 
     public List<Mobil> updateMobilByMerkIdTypeId(Long merkId, Long typeId, Mobil mobil) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -116,12 +106,6 @@ public class MobilService {
         }
 
         return mobilRepository.saveAll(mobils);
-    }
-
-    public Boolean deleteMobilById(Long id){
-        Mobil mobil = mobilRepository.getOne(id);
-        mobilRepository.delete(mobil);
-        return true;
     }
 
 
