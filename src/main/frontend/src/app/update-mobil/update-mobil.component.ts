@@ -1,11 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
-import {Mobil} from "../mobil";
-import {MerkService} from "../merk.service";
-import {Observable} from "rxjs";
-import {HttpResponse} from "@angular/common/http";
-import {Merk} from "../merk";
-
 
 
 @Component({
@@ -14,33 +8,19 @@ import {Merk} from "../merk";
   styleUrls: ['./update-mobil.component.css']
 })
 export class UpdateMobilComponent implements OnInit {
-  @Input() public mobil: Mobil;
-  merks : Merk[];
+  @Input() public id;
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
   constructor(
-    private activeModal: NgbActiveModal,
-    private merkService: MerkService
-  ) {
-
-
-  }
+    private activeModal: NgbActiveModal
+  ) {}
 
   ngOnInit() {
-    console.log(this.mobil);
-
+    console.log(this.id);
   }
 
   passBack() {
-    this.passEntry.emit(this.mobil);
+    this.passEntry.emit(this.id);
     this.activeModal.close();
-  }
-
-  getAllMerk(){
-    this.merkService.getAllMerk().subscribe(
-      (res: HttpResponse<Merk[]>) => {
-        this.merks = res.body;
-      }
-    );
   }
 
 

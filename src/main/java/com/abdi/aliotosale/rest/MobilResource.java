@@ -24,11 +24,6 @@ public class MobilResource {
         return mobilService.getMobilByMerkId(merkId);
     }
 
-    @PutMapping("/{id}/mobil")
-    public Mobil updateMobilById(@PathVariable long id, @RequestBody Mobil mobil){
-        return mobilService.updateMobilById(id, mobil);
-    }
-
     @GetMapping("/{merkId}/{typeId}")
     public List<Mobil> getMobilByMerkIdTypeId(@PathVariable(name = "merkId") Long merkId, @PathVariable(name = "typeId") Long typeId) {
         return mobilService.getMobilByMerkIdTypeId(merkId,typeId);
@@ -47,11 +42,6 @@ public class MobilResource {
     @DeleteMapping("/{merkId}/{typeId}")
     public Boolean deleteMobilByMerkIdTypeId(@PathVariable Long merkId, @PathVariable Long typeId, @RequestBody Mobil mobil) {
         return mobilService.deleteMobilByMerkIdTypeId(merkId, typeId,mobil);
-    }
-
-    @DeleteMapping("/{id}/mobil")
-    public Boolean deleteMobilById(@PathVariable Long id){
-        return mobilService.deleteMobilById(id);
     }
 
 
