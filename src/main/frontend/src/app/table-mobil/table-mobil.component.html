@@ -1,13 +1,18 @@
-<div class="form-group form-inline mt-5 float-right">
-  <select class='form-control' [(ngModel)]="criteria" >
-    <option value='0'>- Select Criteria -</option>
-    <option value='1'>Merk</option>
-    <option value='2'>Type</option>
-  </select>
-  <input type="text" placeholder="Search Box" class="form-control" [(ngModel)]="criteriaValue">
-  <button class="btn btn-secondary" (click)="searchCriteria()" >
-    <fa-icon [icon]="faSearch"></fa-icon>
+<div class="mt-5">
+  <button class="btn btn-primary btn-lg" (click)="getAllMobil()">
+    Tampilkan Semua
   </button>
+  <div class="form-group form-inline  float-right">
+    <select class='form-control' [(ngModel)]="criteria" >
+      <option value='0'>- Select Criteria -</option>
+      <option value='1'>Merk</option>
+      <option value='2'>Type</option>
+    </select>
+    <input type="text" placeholder="Search Box" class="form-control" [(ngModel)]="criteriaValue">
+    <button class="btn btn-secondary" (click)="searchCriteria()" >
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </button>
+  </div>
 </div>
 
 <table class="table table-bordered ">
