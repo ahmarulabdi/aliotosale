@@ -1,7 +1,11 @@
 package com.abdi.aliotosale.rest;
 
+import com.abdi.aliotosale.models.Merk;
 import com.abdi.aliotosale.models.Mobil;
+import com.abdi.aliotosale.models.Type;
+import com.abdi.aliotosale.service.MerkService;
 import com.abdi.aliotosale.service.MobilService;
+import com.abdi.aliotosale.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,15 +17,26 @@ import java.util.List;
 public class MobilResource {
     @Autowired
     private MobilService mobilService;
+    @Autowired
+    private MerkService merkService;
+    @Autowired
+    private TypeService typeService;
 
     @GetMapping("")
     public List<Mobil> getAllMobil() {
         return mobilService.getAllMobil();
     }
 
-    @GetMapping("/{merkId}")
-    public List<Mobil> getMobilByMerkId(@PathVariable(name = "merkId") Long merkId) {
-        return mobilService.getMobilByMerkId(merkId);
+    @GetMapping("/{brand}/merk")
+    public List<Mobil> getMobilByMerkId(@PathVariable(name = "brand") String brand) {
+        Merk merk = merkService.findFirstByBrand(brand);
+        return mobilService.getMobilByMerkId(merk.getId());
+    }
+
+    @GetMapping("/{merkNama}/type")
+    public List<Mobil> getMobilByTypeId(@PathVariable(name = "merkNama") String merkNama) {
+        Type type = typeService.findFirstByTypeNama(merkNama);
+        return mobilService.getMobilByTypeId(type.getId());
     }
 
     @PutMapping("/{id}")
@@ -49,7 +64,7 @@ public class MobilResource {
         return mobilService.deleteMobilByMerkIdTypeId(merkId, typeId,mobil);
     }
 
-    @DeleteMapping("/{id}/mobil")
+    @DeleteMapping("/{id}")
     public Boolean deleteMobilById(@PathVariable Long id){
         return mobilService.deleteMobilById(id);
     }

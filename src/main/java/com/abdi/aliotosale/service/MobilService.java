@@ -42,6 +42,19 @@ public class MobilService {
         return typedQuery.getResultList();
     }
 
+
+    public List<Mobil> getMobilByTypeId(Long typeId) {
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Mobil> criteriaQuery = criteriaBuilder.createQuery(Mobil.class);
+        Root<Mobil> mobilRoot = criteriaQuery.from(Mobil.class);
+
+        Predicate predicateTypeId = criteriaBuilder.equal(mobilRoot.get("typeId"), typeId);
+        criteriaQuery.where(predicateTypeId);
+
+        TypedQuery<Mobil> typedQuery = entityManager.createQuery(criteriaQuery);
+        return typedQuery.getResultList();
+    }
+
     public List<Mobil> getMobilByMerkIdTypeId(Long merkId, Long typeId) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Mobil> criteriaQuery = criteriaBuilder.createQuery(Mobil.class);
@@ -144,6 +157,7 @@ public class MobilService {
         }
 
     }
+
 
 
 }
