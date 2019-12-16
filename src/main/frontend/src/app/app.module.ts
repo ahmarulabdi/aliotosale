@@ -11,7 +11,9 @@ import {NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogService} from "./confirm-dialog/confirm-dialog";
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     TableMobilComponent,
     AddUpdateMobilComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,11 +36,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       preventDuplicates: true,
     }),
     ReactiveFormsModule,
+    FontAwesomeModule
   ],
-  providers: [],
+  providers: [ConfirmDialogService],
   bootstrap: [AppComponent],
   entryComponents: [
-    AddUpdateMobilComponent
+    AddUpdateMobilComponent,
+    ConfirmDialogComponent
   ]
 })
 export class AppModule { }
